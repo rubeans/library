@@ -143,7 +143,6 @@ footer {
 }
 
 footer a {
-    font-weight: 600;
     text-decoration: none;
     color: var(--primary-font-color);
 }
