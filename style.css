@@ -10,6 +10,7 @@
 
 :root {
     --default-padding: 15px;
+    --default-font-color: #e7e788;
 }
 
 /* BODY */
@@ -21,14 +22,14 @@ body {
 /* CONTAINER */
 .container {
     min-height: 95vh;
-    color: #e7e788;
+    color: var(--default-font-color);
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
     grid-template-rows: auto;
     grid-template-areas:
         'header header'
-        'sidebar content';
+        'content content';
 }
 
 /* CONTAINER - HEADER */
@@ -42,14 +43,24 @@ body {
     font-size: 3.5rem;
 }
 
-/* CONTAINER - SIDEBAR */
-.sidebar {
-    grid-area: sidebar;
-}
-
 /* CONTAINER - HEADER */
 .content {
     grid-area: content;
+    display: grid;
+}
+
+.content button {
+    cursor: pointer;
+    font-size: 2rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: var(--default-font-color);
+    color: #1e1b1b;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 7vh;
+    right: 2vh;
 }
 
 /* FOOTER */
