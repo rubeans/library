@@ -9,8 +9,9 @@
 }
 
 :root {
-    --default-padding: 15px;
-    --primary-font-color: #f8f8a0;
+    --default-padding: 20px;
+    --primary-font-color: #dfcb8d;
+    --secundary-font-color: #2a2a2b;
 }
 
 /* BODY */
@@ -47,20 +48,89 @@ body {
 .content {
     grid-area: content;
     display: grid;
+    padding: var(--default-padding);
 }
 
-.content button {
+.open-modal {
     cursor: pointer;
     font-size: 1.5rem;
     width: 3rem;
     height: 3rem;
     background-color: var(--primary-font-color);
-    color: #1e1b1b;
+    color: var(--secundary-font-color);
     border: 0;
     border-radius: 50%;
     position: absolute;
     bottom: 8vh;
     right: 3vh;
+}
+
+.modal {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    border: none;
+    border-radius: 10px;
+    background-color: #dfcb8d8e;
+}
+
+.modal::backdrop {
+    background-color: #2a2a2bd7;
+}
+
+.modal .form {
+    padding: var(--default-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.modal input {
+    display: block;
+    font-size: 1.5rem;
+    padding: var(--default-padding);
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    background-color: var(--secundary-font-color);
+    color: var(--primary-font-color);
+}
+
+.modal input::placeholder {
+    color: var(--primary-font-color);
+}
+
+.modal .readQ {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.readQ label {
+    font-size: 1.5rem;
+    color: var(--secundary-font-color);
+    font-weight: 600;
+}
+
+.readQ input[type='checkbox'] {
+    zoom: 2;
+    accent-color: var(--secundary-font-color);
+}
+
+.modal .add-book {
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: var(--default-padding);
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    background-color: var(--secundary-font-color);
+    color: var(--primary-font-color);
 }
 
 /* FOOTER */
@@ -73,6 +143,7 @@ footer {
 }
 
 footer a {
+    font-weight: 600;
     text-decoration: none;
     color: var(--primary-font-color);
 }
