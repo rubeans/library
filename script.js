@@ -1,6 +1,6 @@
 let myLibrary = [];
 
-function Book() {
+function Book(title, author, pages, isRead) {
     // the constructor...
 }
 

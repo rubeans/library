@@ -10,7 +10,7 @@
 
 :root {
     --default-padding: 15px;
-    --default-font-color: #e7e788;
+    --primary-font-color: #f8f8a0;
 }
 
 /* BODY */
@@ -22,7 +22,7 @@ body {
 /* CONTAINER */
 .container {
     min-height: 95vh;
-    color: var(--default-font-color);
+    color: var(--primary-font-color);
     display: grid;
     grid-template-columns: 1fr;
     grid-auto-rows: 1fr;
@@ -40,10 +40,10 @@ body {
 }
 
 .header h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
-/* CONTAINER - HEADER */
+/* CONTAINER - CONTENT */
 .content {
     grid-area: content;
     display: grid;
@@ -51,21 +51,21 @@ body {
 
 .content button {
     cursor: pointer;
-    font-size: 2rem;
-    width: 4rem;
-    height: 4rem;
-    background-color: var(--default-font-color);
+    font-size: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-font-color);
     color: #1e1b1b;
     border: 0;
     border-radius: 50%;
     position: absolute;
-    bottom: 7vh;
-    right: 2vh;
+    bottom: 8vh;
+    right: 3vh;
 }
 
 /* FOOTER */
 footer {
-    background-color: #00000083;
+    background-color: #1e1b1b74;
     height: 5vh;
     display: grid;
     justify-content: center;
@@ -74,7 +74,7 @@ footer {
 
 footer a {
     text-decoration: none;
-    color: #fff;
+    color: var(--primary-font-color);
 }
 
 footer a:hover {
