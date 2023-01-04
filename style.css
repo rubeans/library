@@ -136,6 +136,24 @@ body {
     background-color: #2a2a2bd7;
 }
 
+.modal .modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .close-modal {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--secundary-font-color);
+    margin: 10px 10px 0 0;
+    align-self: flex-end;
+}
+
+.close-modal .fa-xmark {
+    font-size: 1.25rem;
+}
+
 .modal .form {
     padding: var(--default-padding);
     display: flex;

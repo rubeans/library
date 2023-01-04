@@ -39,17 +39,19 @@
       </div>
       <button class="open-modal"><i class="fa-solid fa-plus"></i></button>
       <dialog id="modal" class="modal">
-        <!-- <button class="close-modal"><i class="fa-solid fa-xmark"></i></button> -->
-        <form class="form" method="dialog">
-          <input type="text" name="title" id="title" placeholder="Title" required autofocus autocomplete="off">
-          <input type="text" name="author" id="author" placeholder="Author" required autocomplete="off">
-          <input type="number" min="1" name="pages" id="pages" placeholder="Pages" required autocomplete="off">
-          <div class="readQ">
-            <label for="isRead">I read this book</label>
-            <input type="checkbox" name="isRead" id="isRead">
-          </div>
-          <button type="submit" class="add-book">Add New Book</button>
-        </form>
+        <div class="modal-content">
+          <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+          <form class="form" method="dialog">
+            <input type="text" name="title" id="title" placeholder="Title" required autofocus autocomplete="off">
+            <input type="text" name="author" id="author" placeholder="Author" required autocomplete="off">
+            <input type="number" min="1" name="pages" id="pages" placeholder="Pages" required autocomplete="off">
+            <div class="readQ">
+              <label for="isRead">I read this book</label>
+              <input type="checkbox" name="isRead" id="isRead">
+            </div>
+            <button type="submit" class="add-book">Add New Book</button>
+          </form>
+        </div>
       </dialog>
     </main>
   </div>
