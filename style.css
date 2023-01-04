@@ -216,13 +216,9 @@ footer {
     align-items: center;
 }
 
-footer i.fa-github {
-    color: #fff;
-}
-
 footer a {
     text-decoration: none;
-    color: var(--primary-font-color);
+    color: #fff;
 }
 
 footer a:hover {

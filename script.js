@@ -19,7 +19,7 @@ const isRead = document.querySelector('#isRead')
 const addBookBtn = document.querySelector('.add-book')
 const form = document.querySelector('.form')
 let myLibrary = [];
-let addBook;
+let newBook;
 
 
 form.addEventListener('submit', () => {
@@ -37,10 +37,14 @@ class Book {
 }
 
 function addBookToLibrary() {
-    addBook = new Book(title.value, author.value, pages.value, isRead.checked)
-    myLibrary.push(addBook)
+    newBook = new Book(title.value, author.value, pages.value, isRead.checked)
+    myLibrary.push(newBook)
+    displayBook()
+}
+
+function displayBook() {
+    const bookBox = document.createElement('div')
     myLibrary.forEach(book => {
-        const bookBox = document.createElement('div')
         bookBox.classList.add('book-box')
         booksContainer.appendChild(bookBox)
     })
