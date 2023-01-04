@@ -40,6 +40,8 @@ function addBookToLibrary() {
     addBook = new Book(title.value, author.value, pages.value, isRead.checked)
     myLibrary.push(addBook)
     myLibrary.forEach(book => {
-        console.log(myLibrary)
+        const bookBox = document.createElement('div')
+        bookBox.classList.add('book-box')
+        booksContainer.appendChild(bookBox)
     })
 }
