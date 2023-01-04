@@ -51,6 +51,61 @@ body {
     padding: var(--default-padding);
 }
 
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.books-container .book-box {
+    padding: var(--default-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a2a2beb;
+    border-radius: 10px;
+    gap: 15px;
+}
+
+.book-box .book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.book-box span {
+    word-break: break-all;
+    font-size: 2rem;
+}
+
+.book-box .book-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    gap: 2px;
+}
+
+.book-box button {
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 2rem;
+    width: 70%;
+    height: 100%;
+    border: none;
+}
+
+.delete {
+    background-color: red;
+    color: white;
+}
+
 .open-modal {
     cursor: pointer;
     font-size: 1.5rem;
@@ -60,9 +115,9 @@ body {
     color: var(--secundary-font-color);
     border: 0;
     border-radius: 50%;
-    position: absolute;
-    bottom: 8vh;
-    right: 3vh;
+    position: fixed;
+    bottom: 6%;
+    right: 2%;
 }
 
 .modal {
