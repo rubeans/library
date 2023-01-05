@@ -30,11 +30,11 @@ class Book {
     autoCapitalize() {
         // CAPITALIZE TITLE
         const titleFLttr = this.title.slice(0, 1).toUpperCase()
-        const restTitleLttr = this.title.slice(1, this.title.length).toLowerCase()
+        const restTitleLttr = this.title.slice(1, this.title.length)
         this.title = titleFLttr + restTitleLttr
         // CAPITALIZE AUTHOR
         const authorFLttr = this.author.slice(0, 1).toUpperCase()
-        const restAuthorLttr = this.author.slice(1, this.author.length).toLowerCase()
+        const restAuthorLttr = this.author.slice(1, this.author.length)
         this.author = authorFLttr + restAuthorLttr
     }
     getIsRead() {
