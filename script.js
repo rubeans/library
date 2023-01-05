@@ -10,22 +10,15 @@ closeModal.addEventListener('click', () => {
     modal.close()
 })
 
-// BOOK CONTENT
+// LIBRAY CONTENT
 const booksContainer = document.querySelector('.books-container')
 const title = document.querySelector('#title')
 const author = document.querySelector('#author')
 const pages = document.querySelector('#pages')
 const isRead = document.querySelector('#isRead')
-const addBookBtn = document.querySelector('.add-book')
 const form = document.querySelector('.form')
 let myLibrary = [];
 let newBook;
-
-// EVERYTIME FORM IS SUBMITTED IT WILL ADD A NEW BOOK AND RESET THE INPUT FIELDS
-form.addEventListener('submit', () => {
-    addBookToLibrary()
-    form.reset()
-})
 
 class Book {
     constructor(title, author, pages, isRead) {
@@ -34,16 +27,35 @@ class Book {
         this.pages = pages.value;
         this.isRead = isRead.checked;
     }
+    autoCapitalize() {
+        // CAPITALIZE TITLE
+        const titleFLttr = this.title.slice(0, 1).toUpperCase()
+        const restTitleLttr = this.title.slice(1, this.title.length).toLowerCase()
+        this.title = titleFLttr + restTitleLttr
+        // CAPITALIZE AUTHOR
+        const authorFLttr = this.author.slice(0, 1).toUpperCase()
+        const restAuthorLttr = this.author.slice(1, this.author.length).toLowerCase()
+        this.author = authorFLttr + restAuthorLttr
+    }
+    getIsRead() {
+        if (this.isRead === true) {
+            this.isRead = "Read"
+        } else {
+            this.isRead = "Not Read"
+        }
+    }
 }
 
+// CREATE THE BOOK OBJECT AND ADD IT TO THE ARRAY
 function addBookToLibrary() {
     newBook = new Book(title, author, pages, isRead)
+    newBook.autoCapitalize()
+    newBook.getIsRead()
     myLibrary.push(newBook)
-    displayBook()
     // console.log(myLibrary)
 }
 
-// DISPLAY THE BOOKS ON SCREEN
+// DISPLAY THE BOOKS ON SCREEN WHEN IT IS ADDED
 function displayBook() {
     // CREATE NEW ELEMENTS TO GIVE IT CHILDS
     const bookBox = document.createElement('div')
@@ -57,7 +69,7 @@ function displayBook() {
         `)
     //BOOK BUTTONS
     bookBtns.insertAdjacentHTML('beforeend', `
-        <button class="isRead">Read</button>
+        <button class="isRead">${newBook.isRead}</button>
         <button class="delete-btn">Delete</button>
     `)
     myLibrary.forEach(book => {
@@ -70,3 +82,14 @@ function displayBook() {
         bookBox.append(bookBtns)
     })
 }
+
+// EVERYTIME FORM IS SUBMITTED IT WILL ADD A NEW BOOK AND RESET THE INPUT FIELDS
+form.addEventListener('submit', () => {
+    addBookToLibrary()
+    displayBook()
+    form.reset()
+})
+
+// HANDLE BUTTONS
+const isReadBtn = document.querySelector('.isRead')
+const deleteBtn = document.querySelector('.delete-btn')

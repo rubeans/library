@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 600;
 }
 
 /* BODY */
@@ -104,7 +105,6 @@ body {
     border: none;
     background-color: var(--primary-font-color);
     color: var(--secundary-font-color);
-    font-weight: 600;
 }
 
 .delete {
@@ -175,7 +175,6 @@ body {
     border-radius: var(--default-border-radius);
     border: none;
     outline: none;
-    font-weight: 600;
     background-color: var(--secundary-font-color);
     color: var(--primary-font-color);
 }
@@ -204,7 +203,6 @@ input::-webkit-inner-spin-button {
 .readQ label {
     font-size: 1.5rem;
     color: var(--secundary-font-color);
-    font-weight: 600;
 }
 
 .readQ input[type='checkbox'] {
@@ -218,7 +216,6 @@ input::-webkit-inner-spin-button {
     padding: var(--default-padding);
     border-radius: var(--default-border-radius);
     border: none;
-    font-weight: 600;
     background-color: var(--secundary-font-color);
     color: var(--primary-font-color);
 }
@@ -233,11 +230,11 @@ footer {
 }
 
 footer a {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     text-decoration: none;
-    color: #fff;
+    color: var(--primary-font-color);
 }
 
 footer a:hover {
-    text-decoration: underline;
+    text-decoration: overline;
 }
