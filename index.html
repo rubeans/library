@@ -26,17 +26,7 @@
     <!-- CONTENT -->
     <main class="content">
       <div class="books-container">
-        <!-- <div class="book-box">
-          <div class="book-info">
-            <span class="author">"Title"</span>
-            <span class="title">By: Author</span>
-            <span class="pages">Pages: 120</span>
-          </div>
-          <div class="book-btns">
-            <button class="isRead">Read</button>
-            <button class="delete">Delete</button>
-          </div>
-        </div> -->
+        <!-- GENERATE IN THE JAVASCRIPT FILE -->
       </div>
       <button class="open-modal"><i class="fa-solid fa-plus"></i></button>
       <dialog id="modal" class="modal">
@@ -45,7 +35,7 @@
           <form class="form" method="dialog">
             <input type="text" name="title" id="title" placeholder="Title" required autofocus autocomplete="off">
             <input type="text" name="author" id="author" placeholder="Author" required autocomplete="off">
-            <input type="number" min="1" name="pages" id="pages" placeholder="Pages" required autocomplete="off">
+            <input type="number" min="1" max="1000000" name="pages" id="pages" placeholder="Pages" required autocomplete="off">
             <div class="readQ">
               <label for="isRead">I read this book!</label>
               <input type="checkbox" name="isRead" id="isRead">

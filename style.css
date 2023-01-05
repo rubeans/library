@@ -54,8 +54,7 @@ body {
 
 .books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -67,7 +66,7 @@ body {
     justify-content: space-between;
     background-color: #2a2a2beb;
     border-radius: var(--default-border-radius);
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .book-box .book-info {
@@ -75,12 +74,15 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .book-box span {
-    word-break: break-all;
-    font-size: 2rem;
+    word-wrap: break-word;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+    font-size: 1.8rem;
 }
 
 .book-box .book-btns {
@@ -90,16 +92,19 @@ body {
     justify-content: center;
     width: 100%;
     height: 40%;
-    gap: 2px;
+    gap: 7px;
 }
 
 .book-box button {
     cursor: pointer;
     border-radius: var(--default-border-radius);
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 70%;
     padding: 2%;
     border: none;
+    background-color: var(--primary-font-color);
+    color: var(--secundary-font-color);
+    font-weight: 600;
 }
 
 .delete {
@@ -175,6 +180,17 @@ body {
     color: var(--primary-font-color);
 }
 
+.modal input#pages {
+    width: 100%;
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .modal input::placeholder {
     color: var(--primary-font-color);
 }
@@ -217,6 +233,7 @@ footer {
 }
 
 footer a {
+    font-size: 1.5rem;
     text-decoration: none;
     color: #fff;
 }
