@@ -69,8 +69,8 @@ function displayBook() {
         `)
     //BOOK BUTTONS
     bookBtns.insertAdjacentHTML('beforeend', `
-        <button class="isRead">${newBook.isRead}</button>
-        <button class="delete-btn">Delete</button>
+        <button class="isRead-btn" onclick="toggleRead()">${newBook.isRead}</button>
+        <button class="delete-btn" onclick="deleteBook()">Delete</button>
     `)
     myLibrary.forEach(book => {
         // APPEND DIV CHILDS AND GIVE IT A CLASS
@@ -90,6 +90,15 @@ form.addEventListener('submit', () => {
     form.reset()
 })
 
-// HANDLE BUTTONS
-const isReadBtn = document.querySelector('.isRead')
-const deleteBtn = document.querySelector('.delete-btn')
+// TOOGLE 'Read' TO 'Not Read' BUTTON AND SO ON
+function toggleRead() {
+    const isReadBtn = document.querySelector('.isRead-btn')
+    if (newBook.isRead === 'Read') {
+        newBook.isRead = 'Not Read'
+        isReadBtn.textContent = newBook.isRead
+
+    } else {
+        newBook.isRead = 'Read'
+        isReadBtn.textContent = newBook.isRead
+    }
+}
