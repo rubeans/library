@@ -10,7 +10,7 @@ closeModal.addEventListener('click', () => {
     modal.close()
 })
 
-// LIBRAY CONTENT
+// LIBRAY CONTENT - DECLARING VARIABLES
 const booksContainer = document.querySelector('.books-container')
 const title = document.querySelector('#title')
 const author = document.querySelector('#author')
@@ -69,10 +69,10 @@ function displayBook() {
         `)
     //BOOK BUTTONS
     bookBtns.insertAdjacentHTML('beforeend', `
-        <button class="isRead-btn" onclick="toggleRead()">${newBook.isRead}</button>
+        <button class="isRead-btn">${newBook.isRead}</button>
         <button class="delete-btn" onclick="deleteBook()">Delete</button>
     `)
-    myLibrary.forEach(book => {
+    myLibrary.forEach(() => {
         // APPEND DIV CHILDS AND GIVE IT A CLASS
         bookBox.classList.add('book-box')
         booksContainer.append(bookBox)
@@ -87,18 +87,28 @@ function displayBook() {
 form.addEventListener('submit', () => {
     addBookToLibrary()
     displayBook()
+    toggleRead()
     form.reset()
 })
 
 // TOOGLE 'Read' TO 'Not Read' BUTTON AND SO ON
 function toggleRead() {
-    const isReadBtn = document.querySelector('.isRead-btn')
-    if (newBook.isRead === 'Read') {
-        newBook.isRead = 'Not Read'
-        isReadBtn.textContent = newBook.isRead
-
-    } else {
-        newBook.isRead = 'Read'
-        isReadBtn.textContent = newBook.isRead
+    const isReadBtn = document.querySelectorAll('.isRead-btn')
+    for (let i = 0; i < isReadBtn.length; i++) {
+        isReadBtn[i].addEventListener('click', () => {
+            if (isReadBtn[i].textContent === 'Read') {
+                newBook.isRead = 'Not Read'
+                isReadBtn[i].textContent = newBook.isRead
+            } else {
+                newBook.isRead = 'Read'
+                isReadBtn[i].textContent = newBook.isRead
+            }
+        })
     }
+}
+
+// WILL DELETE A BOOK
+function deleteBook() {
+    console.log(this)
+    booksContainer.removeChild(document.querySelector('.book-box'))
 }
