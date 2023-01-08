@@ -52,63 +52,66 @@ function addBookToLibrary() {
     newBook.autoCapitalize()
     newBook.getIsRead()
     myLibrary.push(newBook)
-    // console.log(myLibrary)
 }
 
 // DISPLAY THE BOOKS ON SCREEN WHEN IT IS ADDED
 function displayBook() {
-    // CREATE NEW ELEMENTS TO GIVE IT CHILDS
+    // CREATE NEW ELEMENTS AND GIVE IT PARENTS AND CHILDS
+    // BOOK BOX
     const bookBox = document.createElement('div')
-    const bookInfo = document.createElement('div')
-    const bookBtns = document.createElement('div')
+    booksContainer.append(bookBox)
+    bookBox.classList.add('book-box')
     //BOOK INFO 
+    const bookInfo = document.createElement('div')
+    bookBox.append(bookInfo)
+    bookInfo.classList.add('book-info')
     bookInfo.insertAdjacentHTML('beforeend', `
-        <span>"${newBook.title}"</span>
-        <span>By: ${newBook.author}</span>
-        <span>${newBook.pages} Pages</span>
-        `)
+    <span>"${newBook.title}"</span>
+    <span>By: ${newBook.author}</span>
+    <span>${newBook.pages} Pages</span>
+    `)
     //BOOK BUTTONS
+    const bookBtns = document.createElement('div')
+    bookBox.append(bookBtns)
+    bookBtns.classList.add('book-btns')
     bookBtns.insertAdjacentHTML('beforeend', `
         <button class="isRead-btn">${newBook.isRead}</button>
-        <button class="delete-btn" onclick="deleteBook()">Delete</button>
+        <button class="delete-btn">Delete</button>
     `)
-    myLibrary.forEach(() => {
-        // APPEND DIV CHILDS AND GIVE IT A CLASS
-        bookBox.classList.add('book-box')
-        booksContainer.append(bookBox)
-        bookInfo.classList.add('book-info')
-        bookBox.append(bookInfo)
-        bookBtns.classList.add('book-btns')
-        bookBox.append(bookBtns)
-    })
 }
 
 // EVERYTIME FORM IS SUBMITTED IT WILL ADD A NEW BOOK AND RESET THE INPUT FIELDS
 form.addEventListener('submit', () => {
     addBookToLibrary()
     displayBook()
-    toggleRead()
+    handleBtns()
     form.reset()
 })
 
-// TOOGLE 'Read' TO 'Not Read' BUTTON AND SO ON
-function toggleRead() {
-    const isReadBtn = document.querySelectorAll('.isRead-btn')
-    for (let i = 0; i < isReadBtn.length; i++) {
-        isReadBtn[i].addEventListener('click', () => {
-            if (isReadBtn[i].textContent === 'Read') {
-                newBook.isRead = 'Not Read'
-                isReadBtn[i].textContent = newBook.isRead
-            } else {
-                newBook.isRead = 'Read'
-                isReadBtn[i].textContent = newBook.isRead
-            }
-        })
+function handleBtns() {
+    const book = document.querySelectorAll('.book-box')
+    let isReadBtn;
+    let deleteBtn;
+    let bookToBeDeleted;
+    // GIVE DIFFERENTS ID TO EACH BOOK-BOX DIV
+    for (let i = 0; i < book.length; i++) {
+        book[i].setAttribute('id', `book-${i}`)
+        isReadBtn = book[i].querySelector('.isRead-btn')
+        deleteBtn = book[i].querySelector('.delete-btn')
+        bookToBeDeleted = book[i]
     }
-}
-
-// WILL DELETE A BOOK
-function deleteBook() {
-    console.log(this)
-    booksContainer.removeChild(document.querySelector('.book-box'))
+    // TOOGLE 'Read' TO 'Not Read' BUTTON AND SO ON
+    isReadBtn.addEventListener('click', () => {
+        if (isReadBtn.textContent === "Read") {
+            newBook.isRead = "Not Read"
+            isReadBtn.textContent = newBook.isRead
+        } else {
+            newBook.isRead = "Read"
+            isReadBtn.textContent = newBook.isRead
+        }
+    })
+    // WILL DELETE A BOOK
+    deleteBtn.addEventListener('click', () => {
+        bookToBeDeleted.remove()
+    })
 }
